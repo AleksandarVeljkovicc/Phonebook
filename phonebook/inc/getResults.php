@@ -7,7 +7,7 @@ if(isset($_GET['criteria'])) {
 	
 	if(!empty($_GET['criteria'])) {
 		
-		$criteria = trim($_GET['criteria']);
+		$criteria = htmlspecialchars(trim($_GET['criteria']));
 		$criteria = mysqli_real_escape_string($conn,$criteria);
 		$query = "SELECT * FROM contacts WHERE fname LIKE '%{$criteria}%' OR lname LIKE '%{$criteria}%'";
 		
